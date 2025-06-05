@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.Spotlight-V100
+.Trashes
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build output directories (example, may not be used if purely static with no build step)
+dist/
+build/
+out/
+.next/
+.astro/
+public/build/ # Example if Vite or similar outputs here
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+
+# Misc
+*.swp
+*~

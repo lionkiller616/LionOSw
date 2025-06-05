@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found (404) - LionOS</title>
+    <meta name="description" content="Oops! The page you were looking for on the LionOS website could not be found.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon, Icons, Stylesheets (same as other pages) -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+    <style>
+        .error-page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - var(--header-height) - var(--footer-height, 150px)); /* Adjust footer height approx */
+            text-align: center;
+            padding: var(--space-xl);
+            padding-top: calc(var(--header-height) + var(--space-xl)); /* Account for fixed header */
+        }
+        .error-icon {
+            font-size: 6rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-lg);
+            animation: subtleBob 2s ease-in-out infinite alternate;
+        }
+        .error-page-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+        .error-page-container p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 500px;
+            margin-bottom: var(--space-xl);
+        }
+        .error-page-container .btn {
+            margin-top: var(--space-sm);
+        }
+
+        @keyframes subtleBob {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="appstore.html">App Center</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="error-page-container animate-on-scroll fade-in">
+            <span class="material-icons-round error-icon">sentiment_very_dissatisfied</span>
+            <h1>Oops! Page Not Found</h1>
+            <p>It seems the page you're looking for has taken a detour into the digital wilderness. Don't worry, we can help you find your way back.</p>
+            <div class="hero-actions">
+                <a href="index.html" class="btn btn-primary btn-lg">
+                    <span class="material-icons-round">home</span> Go to Homepage
+                </a>
+                <a href="docs.html" class="btn btn-secondary btn-lg">
+                    <span class="material-icons-round">help_outline</span> Explore Docs
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer (Same as other pages) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <!-- Footer content as in other pages -->
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner - Optional on 404, but consistent -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

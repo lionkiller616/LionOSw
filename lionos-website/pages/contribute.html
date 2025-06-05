@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute to LionOS - Join Our Community</title>
+    <meta name="description" content="Help shape the future of LionOS! Learn how you can contribute to development, design, documentation, testing, translations, and community support.">
+
+    <!-- Favicon, Icons, Stylesheets (same as other pages) -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+    <style>
+        /* Specific styles for contribution cards */
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+        .contribution-card { /* Extends .card */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the start */
+            text-align: left;
+        }
+        .contribution-card .icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
+            background-color: rgba(var(--color-accent-rgb), 0.1);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+        }
+        .contribution-card h3 {
+            font-size: 1.4rem; /* Slightly larger than generic card title */
+            margin-bottom: var(--space-sm);
+        }
+        .contribution-card p {
+            font-size: 0.95rem;
+            margin-bottom: var(--space-lg);
+            flex-grow: 1; /* Allow paragraphs to take up space before button */
+        }
+        .contribution-card .btn {
+            margin-top: auto; /* Push button to the bottom of the card */
+            align-self: flex-start; /* Keep button aligned left */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html" class="active">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-content-area">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll fade-in-up">
+                    <h1>Become a LionOS Contributor</h1>
+                    <p class="lead">LionOS is a community-driven project, and your contributions are vital to our success. Whether you're a developer, designer, writer, tester, or enthusiast, there are many ways to get involved and make an impact.</p>
+                </div>
+
+                <div class="contribution-grid">
+                    <!-- Code Contribution Card -->
+                    <article class="card contribution-card animate-on-scroll fade-in-up glass-shine-hover" style="--animation-delay: 0.1s;">
+                        <span class="material-icons-round icon">code</span>
+                        <h3>Code & Development</h3>
+                        <p>Help us build and improve the core OS, desktop environment, applications, and system utilities. We welcome contributions in various programming languages.</p>
+                        <a href="#" class="btn btn-primary btn-icon"> <!-- REPLACE # with GitHub repo link -->
+                            <span class="material-icons-round">hub</span> Browse GitHub Repos
+                        </a>
+                    </article>
+
+                    <!-- Documentation Card -->
+                    <article class="card contribution-card animate-on-scroll fade-in-up glass-shine-hover" style="--animation-delay: 0.2s;">
+                        <span class="material-icons-round icon">menu_book</span>
+                        <h3>Documentation</h3>
+                        <p>Good documentation is key. Help us write, review, and improve user guides, tutorials, API references, and developer documentation.</p>
+                        <a href="docs.html#contributing-docs" class="btn btn-primary btn-icon"> <!-- Link to relevant docs section -->
+                            <span class="material-icons-round">edit</span>Write Docs</a>
+                    </article>
+
+                    <!-- Design & UI/UX Card -->
+                    <article class="card contribution-card animate-on-scroll fade-in-up glass-shine-hover" style="--animation-delay: 0.3s;">
+                        <span class="material-icons-round icon">brush</span>
+                        <h3>Design & UI/UX</h3>
+                        <p>Share your design skills! Contribute to UI mockups, icon design, theming, user experience research, and overall visual identity.</p>
+                        <a href="#" class="btn btn-primary btn-icon"> <!-- Link to design guidelines or contact -->
+                            <span class="material-icons-round">palette</span> Share Your Designs
+                        </a>
+                    </article>
+
+                    <!-- Testing & QA Card -->
+                    <article class="card contribution-card animate-on-scroll fade-in-up glass-shine-hover" style="--animation-delay: 0.4s;">
+                        <span class="material-icons-round icon">bug_report</span>
+                        <h3>Testing & QA</h3>
+                        <p>Help us find and report bugs in testing releases. Your feedback helps ensure LionOS is stable and polished for everyone.</p>
+                        <a href="downloads.html#testing-release" class="btn btn-primary btn-icon"> <!-- Link to testing downloads -->
+                            <span class="material-icons-round">science</span> Test Releases
+                        </a>
+                    </article>
+
+                    <!-- Translation & Localization Card -->
+                    <article class="card contribution-card animate-on-scroll fade-in-up glass-shine-hover" style="--animation-delay: 0.5s;">
+                        <span class="material-icons-round icon">translate</span>
+                        <h3>Translation & Localization</h3>
+                        <p>Make LionOS accessible to a global audience by translating the OS, applications, and documentation into different languages.</p>
+                        <a href="#" class="btn btn-primary btn-icon"> <!-- Link to translation platform (e.g., Weblate, Transifex) -->
+                            <span class="material-icons-round">g_translate</span> Join Translations
+                        </a>
+                    </article>
+
+                    <!-- Community Support Card -->
+                    <article class="card contribution-card animate-on-scroll fade-in-up glass-shine-hover" style="--animation-delay: 0.6s;">
+                        <span class="material-icons-round icon">support_agent</span>
+                        <h3>Community Support</h3>
+                        <p>Help other users by answering questions on our forums, chat groups, and other community channels. Share your knowledge and experience.</p>
+                        <a href="community.html" class="btn btn-primary btn-icon">
+                            <span class="material-icons-round">forum</span> Help in Community
+                        </a>
+                    </article>
+                </div>
+
+                <div class="text-center mt-5 pt-4 animate-on-scroll fade-in-up" style="--animation-delay: 0.7s;">
+                    <h3>Contribution Guidelines</h3>
+                    <p>Before you start, please take a moment to review our Contribution Guidelines and Code of Conduct. These help ensure a smooth and collaborative process for everyone.</p>
+                    <div class="hero-actions mt-3">
+                         <!-- REPLACE # with actual links -->
+                        <a href="#" class="btn btn-outline">
+                            <span class="material-icons-round">gavel</span> Read Contribution Guidelines
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <span class="material-icons-round">checklist</span> Code of Conduct
+                        </a>
+                    </div>
+                </div>
+
+                <hr class="my-5">
+
+                <div class="text-center animate-on-scroll fade-in-up" style="--animation-delay: 0.8s;">
+                    <h3>Not sure where to start?</h3>
+                    <p>Join our <a href="community.html" class="animated-underline">community channels</a> and introduce yourself! We're happy to help you find an area where your skills and interests can make a difference.</p>
+                    <p>Every contribution, no matter how small, is valued and helps LionOS grow.</p>
+                    <span class="material-icons-round text-accent" style="font-size: 3rem; margin-top: var(--space-lg); display: block;">favorite</span>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer (Same as other pages) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner (Same as other pages) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

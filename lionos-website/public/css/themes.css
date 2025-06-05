@@ -1,0 +1,180 @@
+/* public/css/themes.css */
+/* ==========================================================================
+   LionOS - Theme Stylesheet (Light & Dark Mode Overrides)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Light Theme Variable Definitions (RGB versions & Specifics)
+   ========================================================================== */
+:root {
+    /* RGB versions of base colors (for rgba() usage) */
+    --rgb-background: 255, 255, 255;
+    --rgb-background-offset: 247, 247, 247;
+    --rgb-background-glass: 255, 255, 255; /* Base for translucent header before scroll */
+    --rgb-text-primary: 29, 29, 31;
+    --rgb-text-secondary: 88, 88, 91;
+    --rgb-text-tertiary: 138, 138, 142;
+    --rgb-border: 210, 210, 215;
+
+    /* RGB for Accent (already defined in style.css, but good to have it grouped) */
+    /* --color-accent-rgb: 0, 122, 255; */
+
+    /* Light Theme Specifics */
+    --hero-bg-gradient-start: #f0f5ff; /* Very subtle blueish white */
+    --hero-bg-gradient-end: var(--color-background);
+    --glass-background-tint: rgba(240, 240, 240, 0.55); /* Light glass tint */
+}
+
+
+/* ==========================================================================
+   2. Dark Theme Variable Overrides
+   ========================================================================== */
+[data-theme="dark"] {
+    /* Typography (mostly unchanged, but can be fine-tuned if needed) */
+
+    /* Base Colors (Monochrome Palette - Dark) */
+    --color-background: #0d0d0f; /* Very dark, almost black, slightly desaturated blue/purple */
+    --color-background-offset: #1a1a1e; /* Slightly lighter for cards, sections */
+    --color-background-translucent: rgba(20, 20, 22, 0.75); /* For glassmorphism */
+    --color-text-primary: #f5f5f7; /* Apple's light gray for text */
+    --color-text-secondary: #a1a1a6; /* Lighter gray for supporting text */
+    --color-text-tertiary: #7d7d82; /* Even lighter, for subtle hints, captions */
+    --color-border: #3a3a3c; /* Subtle dark border color */
+    --color-border-hover: #4f4f52;
+
+    /* Accent Color (Adjusted for Dark Mode - Can be brighter) */
+    --color-accent: #0A84FF; /* Apple's brighter blue for dark mode */
+    --color-accent-hover: #3FA9FF; /* Lighter shade for hover on dark */
+    --color-accent-rgb: 10, 132, 255;
+    /* --color-accent-text-on-accent: #ffffff; /* Usually remains white */
+
+    /* Semantic Colors (Dark Theme - may need adjustment for contrast) */
+    --color-success: #30d158; /* Brighter green */
+    --color-warning: #ffd60a; /* Brighter yellow */
+    --color-danger: #ff453a;  /* Brighter red */
+
+    /* UI Elements */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0,0,0,0.08); /* Darker shadows */
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0,0,0,0.12);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0,0,0,0.15);
+
+    /* Glassmorphism (Dark) */
+    --glass-background-tint: rgba(30, 30, 33, 0.6); /* Subtle dark tint */
+
+    /* RGB versions of base colors (Dark Theme) */
+    --rgb-background: 13, 13, 15;
+    --rgb-background-offset: 26, 26, 30;
+    --rgb-background-glass: 20, 20, 22;
+    --rgb-text-primary: 245, 245, 247;
+    --rgb-text-secondary: 161, 161, 166;
+    --rgb-text-tertiary: 125, 125, 130;
+    --rgb-border: 58, 58, 60;
+
+    /* Dark Theme Specifics */
+    --hero-bg-gradient-start: #161a25; /* Deep, dark desaturated blue */
+    --hero-bg-gradient-end: var(--color-background);
+}
+
+
+/* ==========================================================================
+   3. Theme-Specific Component Adjustments (If variables aren't enough)
+   ========================================================================== */
+
+/* 3.1. Header in Dark Mode
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] .site-header.scrolled {
+    /* background-color is already handled by --rgb-background-glass with opacity */
+    border-bottom-color: var(--color-border);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03), 0 2px 8px rgba(0,0,0,0.25); /* Adjusted shadow */
+}
+
+/* 3.2. Code Blocks in Dark Mode
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] code,
+[data-theme="dark"] pre {
+    background-color: var(--color-background-offset); /* Using the offset color for subtle contrast */
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+/* 3.3. Forms in Dark Mode
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] .form-control {
+    background-color: var(--color-background-offset);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--color-text-tertiary);
+}
+[data-theme="dark"] .form-control:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.3); /* Slightly more visible focus shadow */
+    background-color: var(--color-background); /* Brighten on focus */
+}
+
+/* 3.4. Cookie Banner in Dark Mode
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] .cookie-banner {
+    background-color: var(--color-background-offset); /* Slightly distinct from page bg */
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+[data-theme="dark"] .cookie-banner p {
+    color: var(--color-text-secondary);
+}
+
+/* 3.5. Hero Background Shapes in Dark Mode
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] .hero-section .bg-shape {
+    opacity: 0.1; /* Adjust base opacity for dark theme if needed */
+}
+[data-theme="dark"] .hero-section .bg-shape-1 {
+    background-image: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.25) 0%, transparent 70%);
+}
+[data-theme="dark"] .hero-section .bg-shape-2 {
+    background-image: radial-gradient(circle, rgba(var(--rgb-text-tertiary), 0.15) 0%, transparent 65%);
+}
+[data-theme="dark"] .hero-section .bg-shape-3 {
+    background-image: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.2) 0%, transparent 75%);
+}
+
+
+/* ==========================================================================
+   4. Optional: Alternative Accent Colors (Example)
+   ========================================================================== */
+/*
+   To use these, JavaScript would add a `data-accent="accent-name"` attribute
+   to the <html> element, alongside `data-theme`.
+*/
+
+/* Example: Purple Accent */
+/*
+[data-accent="purple"] {
+    --color-accent: #BF5AF2; // Apple Purple
+    --color-accent-hover: #AC3FF0;
+    --color-accent-rgb: 191, 90, 242;
+}
+[data-theme="dark"][data-accent="purple"] {
+    --color-accent: #CEA5F3; // Lighter Purple for Dark Mode
+    --color-accent-hover: #BF5AF2;
+    --color-accent-rgb: 206, 165, 243;
+}
+*/
+
+/* Example: Green Accent */
+/*
+[data-accent="green"] {
+    --color-accent: #30D158; // Apple Green
+    --color-accent-hover: #28B34B;
+    --color-accent-rgb: 48, 209, 88;
+}
+[data-theme="dark"][data-accent="green"] {
+    --color-accent: #36E965; // Lighter Green for Dark Mode
+    --color-accent-hover: #30D158;
+    --color-accent-rgb: 54, 233, 101;
+}
+*/
+
+/* End of themes.css */

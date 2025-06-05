@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LionOS App Center - Discover & Install Apps</title>
+    <meta name="description" content="Preview the upcoming LionOS App Center. A beautifully curated, secure, and easy-to-use platform for discovering and installing applications on LionOS.">
+
+    <!-- Favicon, Icons, Stylesheets (same as other pages) -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+    <style>
+        .appstore-hero {
+            padding-top: calc(var(--header-height) + var(--space-xxl));
+            padding-bottom: var(--space-xxl);
+            text-align: center;
+            /* Gentle gradient or subtle pattern for this page's hero */
+            background: linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.02) 0%, transparent 30%),
+                        var(--color-background-offset);
+        }
+        .appstore-hero h1 {
+            font-size: 3rem; font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+        }
+        .appstore-hero .material-icons-round { /* Icon in h1 */
+            font-size: 1.2em; /* Relative to h1 size */
+            color: var(--color-accent);
+        }
+        .appstore-content {
+            padding: var(--section-padding-y) 0;
+            text-align: center;
+        }
+        .appstore-content .container {
+            max-width: 900px;
+        }
+        .appstore-preview-image-container {
+            margin: var(--space-xxl) auto;
+            max-width: 800px; /* Control max width of the preview image */
+            padding: var(--space-md);
+            background-color: var(--color-background);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--color-border);
+        }
+        .appstore-preview-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg); /* Slightly less than container for inset look */
+            display: block;
+        }
+        .appstore-features-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xxl);
+            text-align: left;
+        }
+        .appstore-features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background-color: var(--color-background-offset);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+        .appstore-features-list .material-icons-round {
+            font-size: 1.8rem;
+            color: var(--color-accent);
+            margin-top: 0.1em;
+        }
+        .appstore-features-list h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-primary);
+        }
+        .appstore-features-list p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+        .stay-tuned-cta {
+            margin-top: var(--space-xxxl);
+            padding: var(--space-xl);
+            background-color: var(--color-accent);
+            color: var(--color-accent-text-on-accent);
+            border-radius: var(--radius-lg);
+        }
+        .stay-tuned-cta p {
+            color: var(--color-accent-text-on-accent);
+            margin-bottom: var(--space-md);
+        }
+        .stay-tuned-cta .btn {
+            background-color: var(--color-background);
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .stay-tuned-cta .btn:hover {
+            background-color: rgba(255,255,255,0.9);
+        }
+
+        /* Dark theme adjustments */
+        [data-theme="dark"] .appstore-hero {
+             background: linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.05) 0%, transparent 30%),
+                        var(--color-background-offset);
+        }
+        [data-theme="dark"] .appstore-preview-image-container {
+            background-color: var(--color-background);
+            border-color: var(--color-border);
+        }
+        [data-theme="dark"] .appstore-features-list li {
+            background-color: var(--color-background-offset);
+            border-color: var(--color-border);
+        }
+        [data-theme="dark"] .stay-tuned-cta {
+             background-color: var(--color-accent); /* Or a slightly different shade for dark mode */
+        }
+        [data-theme="dark"] .stay-tuned-cta .btn {
+            background-color: var(--color-background-offset);
+            color: var(--color-accent);
+        }
+        [data-theme="dark"] .stay-tuned-cta .btn:hover {
+            background-color: var(--color-background);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <!-- <li><a href="appstore.html" class="active">App Store</a></li> --> <!-- Uncomment if added to main nav -->
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="appstore-hero animate-on-scroll fade-in">
+            <div class="container">
+                <h1><span class="material-icons-round">storefront</span>LionOS App Center</h1>
+                <p class="lead" style="max-width: 700px; margin: var(--space-md) auto 0 auto;">
+                    Discover, install, and manage applications with unparalleled ease and elegance. The LionOS App Center is coming soon, designed to be your trusted gateway to a world of curated software.
+                </p>
+            </div>
+        </section>
+
+        <section class="appstore-content">
+            <div class="container">
+                <div class="animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+                    <h2>A Glimpse into the Future</h2>
+                    <p>While the full LionOS App Center is under active development, here's a preview of our vision for a seamless and secure application experience.</p>
+                </div>
+
+                <div class="appstore-preview-image-container animate-on-scroll scale-in" style="--animation-delay: 0.2s;">
+                    <!-- REPLACE with an actual mockup/concept image of your App Center -->
+                    <img src="../public/images/appstore-preview.png" alt="Concept preview of the LionOS App Center interface">
+                </div>
+
+                <div class="animate-on-scroll fade-in-up" style="--animation-delay: 0.3s;">
+                    <h3 style="margin-top: var(--space-xxxl); font-size: 1.8rem;">Key Design Principles</h3>
+                    <ul class="appstore-features-list">
+                        <li>
+                            <span class="material-icons-round">verified</span>
+                            <div>
+                                <h4>Curated & Trusted</h4>
+                                <p>Access a carefully selected library of high-quality applications, reviewed for security, stability, and a great user experience.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="material-icons-round">palette</span>
+                            <div>
+                                <h4>Beautifully Simple Interface</h4>
+                                <p>An intuitive, visually appealing design that makes finding and installing apps effortless and enjoyable, inspired by the LionOS aesthetic.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="material-icons-round">security</span>
+                            <div>
+                                <h4>Enhanced Security & Permissions</h4>
+                                <p>Clear information about app permissions, sandboxing (where applicable), and easy management of what your apps can access.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="material-icons-round">apps</span>
+                            <div>
+                                <h4>Seamless Integration</h4>
+                                <p>Applications designed or adapted for LionOS, ensuring they look, feel, and perform beautifully within the LDE.</p>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="material-icons-round">update</span>
+                            <div>
+                                <h4>Effortless Updates</h4>
+                                <p>Keep your applications up-to-date with a straightforward and reliable update mechanism, integrated with the system updater.</p>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="material-icons-round">developer_mode</span>
+                            <div>
+                                <h4>Developer Friendly</h4>
+                                <p>Easy submission and management process for developers looking to bring their applications to the LionOS ecosystem.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="stay-tuned-cta animate-on-scroll fade-in-up" style="--animation-delay: 0.4s;">
+                    <h2>The LionOS App Center is Roaring to Life!</h2>
+                    <p>We're working hard to build an app store that meets the high standards of the LionOS experience. Sign up for our newsletter or follow our blog to be the first to know when it launches.</p>
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a href="blog.html" class="btn btn-icon"> <!-- Placeholder for newsletter signup -->
+                            <span class="material-icons-round">feed</span> Follow Our Blog
+                        </a>
+                        <!-- Example Newsletter Button (requires integration)
+                        <a href="#newsletter-signup-form-id" class="btn btn-icon">
+                            <span class="material-icons-round">email</span> Get Updates
+                        </a>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer (Same as other pages) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner (Same as other pages) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

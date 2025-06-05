@@ -1,0 +1,248 @@
+/* public/css/animations.css */
+/* ==========================================================================
+   LionOS - Animations Stylesheet
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Core Animation Properties & Transitions
+   ========================================================================== */
+
+/* 1.1. Default Page Load Animation
+   -------------------------------------------------------------------------- */
+body {
+    opacity: 0; /* Start fully transparent */
+    animation: pageFadeIn var(--transition-duration-long) var(--transition-timing-function) forwards;
+    animation-delay: 100ms; /* Slight delay to ensure assets might start loading */
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Subtle upward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 1.2. General Element Transitions (used by various components)
+   -------------------------------------------------------------------------- */
+.btn,
+.card,
+.nav-menu a,
+.logo a,
+.footer-links a,
+.footer-social-links a,
+.theme-toggle-btn,
+.mobile-menu-toggle,
+.feature-item, /* Ensure feature items have smooth transitions for hover effects */
+.community-link-card,
+.team-member-card,
+.download-item,
+.blog-post-card {
+    /* Transitions are mostly defined on the elements themselves in style.css
+       This section is more for global animation keyframes if needed.
+       However, ensuring a base transition for common interactive elements can be done here
+       if not already covered by more specific component styles.
+       For now, style.css handles most component-specific transitions. */
+}
+
+
+/* ==========================================================================
+   2. Scroll-Triggered Animations (using .is-visible class from JS)
+   ========================================================================== */
+
+/* 2.1. Fade-In Up
+   -------------------------------------------------------------------------- */
+.animate-on-scroll.fade-in-up {
+    opacity: 0;
+    transform: translateY(var(--space-xl)); /* Start further down */
+    transition: opacity 0.7s var(--transition-timing-function),
+                transform 0.7s var(--transition-timing-function);
+    transition-delay: var(--animation-delay, 0s); /* Allow staggered delays via inline style */
+}
+.animate-on-scroll.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2.2. Fade-In (No transform)
+   -------------------------------------------------------------------------- */
+.animate-on-scroll.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s var(--transition-timing-function);
+    transition-delay: var(--animation-delay, 0s);
+}
+.animate-on-scroll.fade-in.is-visible {
+    opacity: 1;
+}
+
+/* 2.3. Scale-In (Subtle zoom)
+   -------------------------------------------------------------------------- */
+.animate-on-scroll.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s var(--transition-timing-function),
+                transform 0.6s var(--transition-timing-function);
+    transition-delay: var(--animation-delay, 0s);
+}
+.animate-on-scroll.scale-in.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ==========================================================================
+   3. Component-Specific Animations & Effects
+   ========================================================================== */
+
+/* 3.1. Feature Icon Hover Animation
+   -------------------------------------------------------------------------- */
+.feature-item .feature-icon {
+    transition: transform var(--transition-duration-base) cubic-bezier(0.34, 1.56, 0.64, 1); /* Elastic out */
+}
+.feature-item:hover .feature-icon {
+    transform: scale(1.15) rotate(-3deg);
+}
+
+/* 3.2. Glass Shine Hover Effect (for cards, header etc.)
+   -------------------------------------------------------------------------- */
+.glass-shine-hover {
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow: hidden;   /* Contain the shine pseudo-element */
+}
+.glass-shine-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%; /* Start off-screen to the left */
+    width: 100%; /* Width of the shine element */
+    height: 100%;
+    background: linear-gradient(
+        100deg, /* Angle of the shine */
+        transparent 20%,
+        rgba(255, 255, 255, 0.15) 45%, /* Light theme shine intensity */
+        rgba(255, 255, 255, 0.15) 55%,
+        transparent 80%
+    );
+    transform: skewX(-25deg); /* Skew the shine for a more dynamic look */
+    transition: left var(--transition-duration-long) cubic-bezier(0.23, 1, 0.32, 1); /* Smooth, fast out */
+    pointer-events: none;
+    z-index: 1; /* Ensure it's above the background but below content */
+}
+.glass-shine-hover:hover::before {
+    left: 150%; /* Move shine across the element */
+}
+
+[data-theme="dark"] .glass-shine-hover::before {
+    background: linear-gradient(
+        100deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.06) 45%, /* Dark theme shine intensity - more subtle */
+        rgba(255, 255, 255, 0.06) 55%,
+        transparent 80%
+    );
+}
+
+/* 3.3. Subtle Pulsing Dot (e.g., for "New" badges or indicators)
+   -------------------------------------------------------------------------- */
+.pulse-dot-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent);
+    border-radius: var(--radius-full);
+    margin-left: var(--space-xs);
+    animation: pulseDot 1.8s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.7);
+}
+@keyframes pulseDot {
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.5);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(var(--color-accent-rgb), 0);
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0);
+    }
+}
+
+/* 3.4. Mobile Menu Slide-In/Out (example - JS toggles .active)
+   -------------------------------------------------------------------------- */
+.nav-menu { /* Base style in style.css */
+    /* For a slide-in animation, JS would toggle a class that changes transform or max-height */
+    /* Example if using transform:
+    transform: translateX(-100%);
+    transition: transform var(--transition-duration-base) var(--transition-timing-function);
+    */
+}
+.nav-menu.active {
+    /* Example if using transform:
+    transform: translateX(0);
+    */
+}
+/* Current implementation uses display:none/flex, which is harder to animate smoothly.
+   A transform-based or max-height animation is better for mobile menu appearance.
+   This would require JS to toggle a class that controls these properties.
+   For now, sticking to the display toggle for simplicity as per previous setup.
+*/
+
+
+/* ==========================================================================
+   4. Utility Animations
+   ========================================================================== */
+
+/* 4.1. Simple Spin (for loaders, icons)
+   -------------------------------------------------------------------------- */
+.spin-animation {
+    animation: spinKeyframes 1s linear infinite;
+}
+@keyframes spinKeyframes {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 4.2. Loading Placeholder Shimmer (for skeleton screens)
+   -------------------------------------------------------------------------- */
+.shimmer-placeholder {
+    background-color: var(--color-background-offset);
+    background-image: linear-gradient(
+        to right,
+        var(--color-background-offset) 0%,
+        rgba(var(--rgb-border), 0.3) 20%, /* Using border color for shimmer */
+        var(--color-background-offset) 40%,
+        var(--color-background-offset) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 1000px 100%; /* Large size for the shimmer effect */
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    animation: placeholderShimmer 2s infinite linear;
+    color: transparent; /* Hide text if any */
+}
+[data-theme="dark"] .shimmer-placeholder {
+    background-image: linear-gradient(
+        to right,
+        var(--color-background-offset) 0%,
+        rgba(var(--rgb-border), 0.2) 20%, /* Darker shimmer */
+        var(--color-background-offset) 40%,
+        var(--color-background-offset) 100%
+    );
+}
+@keyframes placeholderShimmer {
+    0% { background-position: -500px 0; } /* Start position of gradient */
+    100% { background-position: 500px 0; } /* End position of gradient */
+}
+/* Example usage for a shimmering text line:
+   <span class="shimmer-placeholder" style="width: 200px; height: 1.2em; border-radius: 4px;"></span>
+*/
+
+
+/* End of animations.css */

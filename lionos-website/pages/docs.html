@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - LionOS</title>
+    <meta name="description" content="Official documentation for LionOS. Find guides on installation, getting started, troubleshooting, and more.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+    <style>
+        /* Specific styles for this static docs page layout */
+        .docs-layout {
+            display: flex;
+            padding-top: calc(var(--header-height) + var(--space-lg)); /* Account for fixed header */
+            min-height: calc(100vh - var(--header-height)); /* Ensure it takes height */
+        }
+        .docs-sidebar-static {
+            width: 280px;
+            flex-shrink: 0;
+            padding: var(--space-xl) var(--space-lg);
+            border-right: 1px solid var(--color-border);
+            height: calc(100vh - var(--header-height)); /* Full height minus header */
+            overflow-y: auto;
+            position: sticky; /* Sticky sidebar */
+            top: var(--header-height);
+            background-color: var(--color-background-offset);
+        }
+        .docs-sidebar-static h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-tertiary);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+            padding-left: var(--space-md);
+        }
+        .docs-sidebar-static ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .docs-sidebar-static li a {
+            display: block;
+            padding: var(--space-sm) var(--space-md);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background-color var(--transition-duration-short) ease, color var(--transition-duration-short) ease;
+        }
+        .docs-sidebar-static li a:hover {
+            background-color: rgba(var(--color-accent-rgb), 0.08);
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+        .docs-sidebar-static li a.active-doc-link { /* JS will add this based on scroll/hash */
+            background-color: rgba(var(--color-accent-rgb), 0.12);
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .docs-content-static {
+            flex-grow: 1;
+            padding: var(--space-xl) var(--space-xxl);
+            max-width: calc(100% - 280px); /* Ensure it doesn't overlap sidebar */
+        }
+        .docs-content-static section[id] { /* Target sections with IDs for scrolling */
+            padding-top: var(--space-lg); /* Offset for fixed header when jumping to id */
+            margin-top: calc(-1 * var(--space-lg)); /* Negative margin to counteract padding for layout */
+        }
+        .docs-content-static h2 {
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: var(--space-sm);
+            margin-top: var(--space-xxxl); /* More space before H2 */
+        }
+        .docs-content-static h2:first-child {
+             margin-top: 0;
+        }
+        .docs-content-static img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            margin: var(--space-lg) 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 1024px) {
+            .docs-layout {
+                flex-direction: column;
+            }
+            .docs-sidebar-static {
+                width: 100%;
+                height: auto;
+                position: static; /* No longer sticky */
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+                overflow-y: visible;
+                padding: var(--space-lg) var(--space-md);
+            }
+            .docs-sidebar-static ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--space-xs);
+            }
+             .docs-sidebar-static li a {
+                padding: var(--space-xs) var(--space-sm);
+            }
+            .docs-content-static {
+                max-width: 100%;
+                padding: var(--space-xl) var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html" class="active">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="docs-layout">
+        <aside class="docs-sidebar-static">
+            <nav aria-label="Documentation Sections">
+                <h3>Getting Started</h3>
+                <ul>
+                    <li><a href="#introduction" class="active-doc-link">Introduction to LionOS</a></li>
+                    <li><a href="#system-requirements">System Requirements</a></li>
+                    <li><a href="#installation-guide">Installation Guide</a></li>
+                    <li><a href="#first-boot">First Boot & Setup</a></li>
+                </ul>
+
+                <h3>Using LionOS</h3>
+                <ul>
+                    <li><a href="#desktop-overview">Desktop Overview</a></li>
+                    <li><a href="#managing-apps">Managing Applications</a></li>
+                    <li><a href="#system-settings">System Settings</a></li>
+                    <li><a href="#terminal-basics">Terminal Basics</a></li>
+                </ul>
+
+                <h3>Advanced Topics</h3>
+                <ul>
+                    <li><a href="#customization">Customization</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#contributing-docs">Contributing to Docs</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="docs-content-static" id="main-docs-content">
+            <section id="introduction" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">info</span>Introduction to LionOS</h2>
+                <p class="lead">Welcome to the official documentation for LionOS. This guide aims to provide you with all the information you need to install, use, and enjoy our operating system.</p>
+                <p>LionOS is a modern, Linux-based operating system designed with a focus on performance, simplicity, and a beautiful user experience. Inspired by the elegance of macOS and the robustness of established Linux distributions, LionOS offers a unique blend of power and ease-of-use.</p>
+                <h3>Our Philosophy</h3>
+                <p>We believe that your operating system should be an intuitive tool that empowers you, rather than a complex system that gets in your way. Our core principles include:</p>
+                <ul>
+                    <li><strong>Minimalism:</strong> A clean, clutter-free interface that promotes focus.</li>
+                    <li><strong>Performance:</strong> Optimized for speed and efficiency on a wide range of hardware.</li>
+                    <li><strong>Elegance:</strong> Thoughtful design in every pixel, from icons to animations.</li>
+                    <li><strong>Security:</strong> Robust security features and privacy-respecting defaults.</li>
+                    <li><strong>Community:</strong> Built by and for a passionate global community of users and developers.</li>
+                </ul>
+                <p>Whether you are new to Linux or a seasoned veteran, we hope you find LionOS to be a refreshing and productive environment.</p>
+            </section>
+
+            <section id="system-requirements" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">memory</span>System Requirements</h2>
+                <p>To ensure a smooth experience with LionOS, your system should meet the following minimum requirements. Recommended specifications are for optimal performance.</p>
+                
+                <h3>Minimum Requirements:</h3>
+                <ul>
+                    <li><strong>Processor:</strong> 1 GHz dual-core processor (x86-64)</li>
+                    <li><strong>RAM:</strong> 2 GB</li>
+                    <li><strong>Storage:</strong> 20 GB of free hard drive space</li>
+                    <li><strong>Graphics:</strong> Graphics card capable of 1024x768 resolution</li>
+                    <li><strong>Media:</strong> USB port or DVD drive for installation media</li>
+                </ul>
+
+                <h3>Recommended Specifications:</h3>
+                <ul>
+                    <li><strong>Processor:</strong> 2 GHz quad-core processor (x86-64) or better</li>
+                    <li><strong>RAM:</strong> 4 GB or more</li>
+                    <li><strong>Storage:</strong> 40 GB SSD (Solid State Drive) for faster performance</li>
+                    <li><strong>Graphics:</strong> Modern graphics card with good Linux driver support (NVIDIA, AMD, Intel)</li>
+                    <li><strong>Internet:</strong> Broadband internet connection for updates and online features</li>
+                </ul>
+                <p><em>Note: LionOS is designed to be lightweight, but performance will vary based on your specific hardware configuration.</em></p>
+            </section>
+
+            <section id="installation-guide" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">build_circle</span>Installation Guide</h2>
+                <p>This section provides a step-by-step guide to installing LionOS on your computer. Please back up any important data before proceeding.</p>
+                <ol>
+                    <li><strong>Download the ISO:</strong> Get the latest LionOS ISO image from our <a href="downloads.html">Downloads page</a>. Verify the checksum to ensure integrity.</li>
+                    <li><strong>Create Bootable Media:</strong>
+                        <ul>
+                            <li><strong>USB Drive:</strong> Use a tool like BalenaEtcher, Rufus (Windows), or `dd` (Linux/macOS) to write the ISO image to a USB drive (at least 4GB recommended).</li>
+                            <li><strong>DVD:</strong> Burn the ISO image to a blank DVD.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Boot from Media:</strong> Restart your computer and enter your BIOS/UEFI settings (usually by pressing DEL, F2, F10, F12, or ESC during startup). Configure your computer to boot from the USB drive or DVD.</li>
+                    <li><strong>Start the Installer:</strong> Once LionOS boots from the media, you'll see a welcome screen. Choose the "Install LionOS" option.</li>
+                    <li><strong>Follow On-Screen Instructions:</strong> The installer will guide you through:
+                        <ul>
+                            <li>Language selection</li>
+                            <li>Keyboard layout</li>
+                            <li>Timezone</li>
+                            <li>Partitioning: You can choose to erase the entire disk and install LionOS, or manually partition if you plan to dual-boot. <strong>Be careful with partitioning as it can lead to data loss if done incorrectly.</strong></li>
+                            <li>User account creation (username, password).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Installation Process:</strong> The installer will copy files and configure the system. This may take some time.</li>
+                    <li><strong>Restart:</strong> Once the installation is complete, remove the installation media and restart your computer.</li>
+                </ol>
+                <p>Congratulations! You should now be able to boot into your new LionOS installation.</p>
+            </section>
+
+            <section id="first-boot" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">rocket</span>First Boot & Setup</h2>
+                <p>After successfully installing and restarting, you'll be greeted by the LionOS desktop.</p>
+                <p><strong>Initial Setup (if applicable):</strong></p>
+                <ul>
+                    <li>You may be prompted to connect to a Wi-Fi network.</li>
+                    <li>A welcome application might guide you through some initial configurations or highlight key features.</li>
+                    <li>It's highly recommended to check for and install any available system updates soon after your first boot. You can usually do this through a "Software Updater" application or via the terminal.</li>
+                </ul>
+                <p>Explore the desktop, familiarize yourself with the application launcher, system tray, and settings panel. Welcome to LionOS!</p>
+            </section>
+
+            <!-- Add more static sections here for: -->
+            <!-- Desktop Overview, Managing Apps, System Settings, Terminal Basics, Customization, Troubleshooting, Contributing to Docs -->
+            <section id="desktop-overview" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">desktop_windows</span>Desktop Overview</h2>
+                <p>LionOS features the "Elysium" desktop environment, designed for beauty and efficiency. Key components include:</p>
+                <ul>
+                    <li><strong>The Dock:</strong> Quick access to your favorite and running applications.</li>
+                    <li><strong>Top Panel:</strong> Contains the application menu (for focused apps), system status indicators (network, sound, battery), notifications, and a clock/calendar.</li>
+                    <li><strong>Application Launcher:</strong> Access all installed applications. Usually opened via an icon on the dock or a keyboard shortcut.</li>
+                    <li><strong>File Manager:</strong> "Files" provides an intuitive way to browse and manage your documents and folders.</li>
+                    <li><strong>System Settings:</strong> Centralized control panel for configuring all aspects of your OS.</li>
+                </ul>
+                <p>Spend some time exploring to see how these elements work together to create a seamless workflow.</p>
+            </section>
+             <!-- Add more sections as needed -->
+             <section id="managing-apps" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">apps</span>Managing Applications</h2>
+                <p>LionOS aims to make software management straightforward.</p>
+                <ul>
+                    <li><strong>App Center:</strong> The primary way to discover, install, and remove graphical applications. It features curated lists and categories. (Placeholder for when App Center is ready)</li>
+                    <li><strong>Package Manager (Terminal):</strong> For more advanced users, LionOS uses a powerful command-line package manager (e.g., `apt`, `pacman`, `dnf` - specify which one LionOS would use). Example: `sudo lionos-pkg install appname`.</li>
+                    <li><strong>Updating Applications:</strong> System and application updates are typically handled through a "Software Updater" tool or via the package manager in the terminal.</li>
+                </ul>
+             </section>
+             <section id="troubleshooting" class="animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round" style="vertical-align: middle; margin-right: 0.3em;">build</span>Troubleshooting</h2>
+                <p>If you encounter issues, here are some initial steps:</p>
+                <ul>
+                    <li><strong>Consult the LionOS Community:</strong> Check our <a href="community.html">forums or chat groups</a>. Someone may have already solved a similar problem.</li>
+                    <li><strong>Check System Logs:</strong> Use tools like `journalctl` (if systemd-based) to view system messages for errors.</li>
+                    <li><strong>Hardware Compatibility:</strong> Ensure your hardware is well-supported by the Linux kernel version LionOS uses.</li>
+                    <li><strong>Search Online:</strong> General Linux troubleshooting resources can often be helpful.</li>
+                </ul>
+                <p>For specific issues, providing detailed information (error messages, steps to reproduce, hardware details) will help the community assist you.</p>
+             </section>
+
+
+        </main>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Simple JS for active link highlighting in static docs sidebar based on scroll
+        // This is a basic version. A more robust one would use Intersection Observer.
+        const docSections = document.querySelectorAll('.docs-content-static section[id]');
+        const docSidebarLinks = document.querySelectorAll('.docs-sidebar-static a');
+        let currentActiveDocLink = document.querySelector('.docs-sidebar-static a.active-doc-link');
+
+        function highlightActiveDocLink() {
+            let currentSectionId = '';
+            const headerHeight = document.querySelector('.site-header')?.offsetHeight || 70;
+            const scrollPosition = window.scrollY + headerHeight + 40; // Offset for header and some breathing room
+
+            docSections.forEach(section => {
+                if (section.offsetTop <= scrollPosition) {
+                    currentSectionId = section.id;
+                }
+            });
+
+            if (currentSectionId) {
+                const newActiveLink = document.querySelector(`.docs-sidebar-static a[href="#${currentSectionId}"]`);
+                if (newActiveLink && newActiveLink !== currentActiveDocLink) {
+                    if (currentActiveDocLink) {
+                        currentActiveDocLink.classList.remove('active-doc-link');
+                    }
+                    newActiveLink.classList.add('active-doc-link');
+                    currentActiveDocLink = newActiveLink;
+                }
+            } else if (!window.location.hash && currentActiveDocLink && currentActiveDocLink.getAttribute('href') !== '#introduction') {
+                // If scrolled to top and no hash, default to intro or first link
+                if (currentActiveDocLink) currentActiveDocLink.classList.remove('active-doc-link');
+                const introLink = document.querySelector('.docs-sidebar-static a[href="#introduction"]');
+                if (introLink) {
+                    introLink.classList.add('active-doc-link');
+                    currentActiveDocLink = introLink;
+                }
+            }
+        }
+
+        // Highlight on load based on hash or default
+        function initialDocLinkHighlight() {
+            const hash = window.location.hash;
+            let linkToActivate;
+            if (hash) {
+                linkToActivate = document.querySelector(`.docs-sidebar-static a[href="${hash}"]`);
+            }
+            if (!linkToActivate) { // If no hash or hash link not found, default to introduction
+                linkToActivate = document.querySelector('.docs-sidebar-static a[href="#introduction"]');
+            }
+
+            if (linkToActivate) {
+                if (currentActiveDocLink) currentActiveDocLink.classList.remove('active-doc-link');
+                linkToActivate.classList.add('active-doc-link');
+                currentActiveDocLink = linkToActivate;
+            }
+        }
+
+        window.addEventListener('scroll', highlightActiveDocLink, { passive: true });
+        window.addEventListener('hashchange', initialDocLinkHighlight);
+        initialDocLinkHighlight(); // Run on load
+        highlightActiveDocLink(); // Also run on load after initial setup for scroll position
+
+    </script>
+</body>
+</html>

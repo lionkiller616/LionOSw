@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LionOS Docs - Innovation at its Core</title>
+    <meta name="description" content="Explore the groundbreaking features of LionOS. From the elegant Lion Desktop Environment and LICO Compositor to advanced GhostFS storage and smart system intelligence.">
+
+    <!-- Favicon, Icons, Stylesheets (same as previous features.html head) -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+</head>
+<body>
+
+    <!-- Site Header (same as before) -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Features Page Hero -->
+        <section class="features-page-hero">
+            <div class="container animate-on-scroll fade-in-up">
+                <h1>The Anatomy of Innovation.</h1>
+                <p class="lead">LionOS isn't just an operating system; it's a meticulously crafted experience. We've rethought every layer, from the desktop to the kernel, to deliver unparalleled performance, intuitive design, and intelligent features that anticipate your needs.</p>
+            </div>
+        </section>
+
+        <!-- Feature Showcase: LDE & LICO Compositor -->
+        <section class="feature-showcase-section">
+            <div class="container">
+                <div class="feature-showcase-content">
+                    <div class="feature-text animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+                        <span class="eyebrow">Desktop Experience Redefined</span>
+                        <h2>Lion Desktop Environment & LICO Compositor</h2>
+                        <p>Immerse yourself in LDE, a stunning desktop inspired by macOS 16, where elegance meets efficiency. Powered by the LICO Compositor, experience RAM-GPU accelerated graphics, silky-smooth animations, and ultra-low latency for a truly fluid interactive feel.</p>
+                        <ul class="sub-feature-list">
+                            <li><span class="material-icons-round">layers</span>Pixel-perfect, minimalist UI with refined typography.</li>
+                            <li><span class="material-icons-round">animation</span>Buttery-smooth transitions and window effects.</li>
+                            <li><span class="material-icons-round">blur_on</span>Adaptive glassmorphism and sophisticated visual depth.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual animate-on-scroll scale-in" style="--animation-delay: 0.2s;">
+                        <!-- Placeholder: Ideal for a stunning LDE screenshot or short animation/video -->
+                        <img src="../public/images/lde-showcase.png" alt="Lion Desktop Environment Showcase">
+                        <!-- <span class="css-graphic-element material-icons-round">desktop_mac</span> -->
+                        <!-- <p class="placeholder-text">LDE Visual Showcase Here</p> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Showcase: GhostFS -->
+        <section class="feature-showcase-section">
+            <div class="container">
+                <div class="feature-showcase-content">
+                     <div class="feature-visual animate-on-scroll scale-in" style="--animation-delay: 0.2s;">
+                        <!-- Placeholder: Conceptual graphic for GhostFS layers or vault -->
+                        <img src="../public/images/ghostfs-concept.png" alt="GhostFS Conceptual Diagram">
+                        <!-- <span class="css-graphic-element material-icons-round">security</span> -->
+                        <!-- <p class="placeholder-text">GhostFS Conceptual Graphic</p> -->
+                    </div>
+                    <div class="feature-text animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+                        <span class="eyebrow">Next-Generation Storage</span>
+                        <h2>GhostFS: Secure, Encrypted, Ephemeral.</h2>
+                        <p>Introducing GhostFS, a revolutionary hybrid filesystem. It intelligently fuses concepts from ZFS, LUKS, and tmpfs to offer live on-the-fly encryption, efficient compression, and RAM-backed zero-trace temporary storage for unparalleled privacy and performance.</p>
+                        <ul class="sub-feature-list">
+                            <li><span class="material-icons-round">enhanced_encryption</span>Live, transparent data encryption for system and user files.</li>
+                            <li><span class="material-icons-round">speed</span>RAM-backed ephemeral storage for blazing-fast temporary operations.</li>
+                            <li><span class="material-icons-round">shield_lock</span>GhostVault for ultra-secure, isolated storage of sensitive data.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Showcase: Smart System Intelligence -->
+        <section class="feature-showcase-section">
+            <div class="container">
+                <div class="feature-showcase-content">
+                    <div class="feature-text animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+                        <span class="eyebrow">Intelligent & Adaptive</span>
+                        <h2>Proactive System Intelligence</h2>
+                        <p>LionOS features sophisticated offline modules that simulate AI-like behaviors. Experience a system that learns your habits for adaptive performance, offers smart app suggestions, and even attempts self-healing for common issues, all while respecting your privacy.</p>
+                         <ul class="sub-feature-list">
+                            <li><span class="material-icons-round">auto_awesome</span>Adaptive Performance: Optimizes resource allocation based on your usage.</li>
+                            <li><span class="material-icons-round">healing</span>System Self-Healing: Automatic patching and self-diagnosis.</li>
+                            <li><span class="material-icons-round">lightbulb</span>Smart Suggestions: Contextual app and action recommendations (offline).</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual animate-on-scroll scale-in" style="--animation-delay: 0.2s;">
+                        <!-- Placeholder: Abstract graphic representing AI/neural networks or adaptive learning -->
+                         <img src="../public/images/smart-system-graphic.png" alt="Smart System Intelligence Graphic">
+                        <!-- <span class="css-graphic-element material-icons-round">psychology</span> -->
+                        <!-- <p class="placeholder-text">Smart System Graphic</p> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Key Features Section -->
+        <section class="other-features-section">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll fade-in-up">
+                    <h2>More Core Innovations</h2>
+                    <p class="lead" style="max-width: 700px; margin: 0 auto;">Beyond the highlights, LionOS is packed with features that refine every aspect of your computing.</p>
+                </div>
+                <div class="other-features-grid">
+                    <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+                        <div class="feature-name"><span class="material-icons-round">foundation</span>Debian Core & Optimizations</div>
+                        <p class="feature-description">Rock-solid stability with system-wide performance tuning and fast boot via init tweaks.</p>
+                    </article>
+                    <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.15s;">
+                        <div class="feature-name"><span class="material-icons-round">description</span>Native Daxa/DX File Support</div>
+                        <p class="feature-description">Human-readable structured data formats integral to LionOS for documents, configs, and diagrams.</p>
+                    </article>
+                    <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.2s;">
+                        <div class="feature-name"><span class="material-icons-round">widgets</span>Integrated App Suite</div>
+                        <p class="feature-description">Minimal, elegant apps for Files, Terminal (Zsh/Fish), Notes, Music, Gallery, and more, all with cohesive UI.</p>
+                    </article>
+                     <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.25s;">
+                        <div class="feature-name"><span class="material-icons-round">battery_alert</span>Optimized Battery Performance</div>
+                        <p class="feature-description">Advanced power management and system tuning provide significantly improved battery life for laptops and portable devices.</p>
+                    </article>
+                    <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.3s;">
+                        <div class="feature-name"><span class="material-icons-round">security</span>Privacy-First Connectivity</div>
+                        <p class="feature-description">Built-in Firewall, VPN Manager, and secure delta updates. Optional LionID for privacy-focused sync.</p>
+                    </article>
+                    <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.35s;">
+                        <div class="feature-name"><span class="material-icons-round">build_circle</span>Developer & Customization Tools</div>
+                        <p class="feature-description">Theme Engine, Window Manager configs, animation profiles, Developer Console, and System App SDK.</p>
+                    </article>
+                    <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.4s;">
+                        <div class="feature-name"><span class="material-icons-round">admin_panel_settings</span>Advanced Security Measures</div>
+                        <p class="feature-description">Encrypted Home, GhostMode zero-trace sessions, custom App Permissions UI, Anti-Tamper Kernel Lock, Secure Boot.</p>
+                    </article>
+                     <article class="other-feature-item animate-on-scroll fade-in-up" style="--animation-delay: 0.45s;">
+                        <div class="feature-name"><span class="material-icons-round">groups_3</span>Community & Collaboration</div>
+                        <p class="feature-description">Official chat groups, direct feedback system, dev portal, and sandbox for app testing.</p>
+                    </article>
+                </div>
+                 <div class="text-center mt-5 pt-4 animate-on-scroll fade-in-up" style="--animation-delay: 0.5s;">
+                    <p class="lead" style="font-size: 1.1rem;">
+                        This is just a glimpse. LionOS is a continuously evolving platform.
+                    </p>
+                    <a href="docs.html" class="btn btn-primary mt-2">
+                        <span class="material-icons-round">menu_book</span> Explore Documentation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Site Footer & Cookie Banner (same as before) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

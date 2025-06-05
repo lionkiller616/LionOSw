@@ -1,0 +1,1082 @@
+/* public/css/style.css */
+/* ==========================================================================
+   LionOS - Main Stylesheet
+   Version: 1.0.0
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Imports & Variables
+   ========================================================================== */
+
+/* 1.1. Font Imports
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap');
+
+/* 1.2. Root Variables (Light Theme Defaults)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-mono: 'Roboto Mono', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --base-font-size: 16px; /* Base for rem units */
+    --line-height-base: 1.7;
+    --line-height-heading: 1.3;
+
+    /* Base Colors (Monochrome Palette - Light) */
+    --color-background: #ffffff; /* Pure white for ultimate cleanness */
+    --color-background-offset: #f7f7f7; /* Slightly off-white for cards, sections */
+    --color-background-translucent: rgba(255, 255, 255, 0.75); /* For glassmorphism */
+    --color-text-primary: #1d1d1f; /* Apple's dark gray for text */
+    --color-text-secondary: #58585b; /* Lighter gray for supporting text */
+    --color-text-tertiary: #8a8a8e; /* Even lighter, for subtle hints, captions */
+    --color-border: #d2d2d7; /* Subtle border color */
+    --color-border-hover: #b0b0b3;
+
+    /* Accent Color (Primary - e.g., Cobalt Blue) */
+    --color-accent: #007AFF; /* Classic Apple Blue */
+    --color-accent-hover: #0056b3; /* Darker shade for hover */
+    --color-accent-rgb: 0, 122, 255; /* For rgba() usage */
+    --color-accent-text-on-accent: #ffffff; /* Text color on accent background */
+
+    /* Semantic Colors (Light Theme) */
+    --color-success: #34c759;
+    --color-warning: #ffcc00;
+    --color-danger: #ff3b30;
+
+    /* UI Elements */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0,0,0,0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0,0,0,0.06);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0,0,0,0.08);
+
+    --radius-sm: 4px;
+    --radius-md: 8px; /* Standard radius */
+    --radius-lg: 12px; /* For larger elements like modals or hero images */
+    --radius-xl: 16px;
+    --radius-full: 9999px; /* Pill shape */
+
+    /* Glassmorphism */
+    --glass-blur-intensity: 12px;
+    --glass-saturation: 150%;
+    --glass-background-tint: rgba(230, 230, 230, 0.5); /* Subtle light tint */
+
+    /* Layout & Spacing - Using a base unit for consistency */
+    --space-unit: 8px; /* Base unit for margins, paddings */
+    --space-xs: calc(var(--space-unit) * 0.5);  /* 4px */
+    --space-sm: var(--space-unit);              /* 8px */
+    --space-md: calc(var(--space-unit) * 2);    /* 16px */
+    --space-lg: calc(var(--space-unit) * 3);    /* 24px */
+    --space-xl: calc(var(--space-unit) * 4);    /* 32px */
+    --space-xxl: calc(var(--space-unit) * 6);   /* 48px */
+    --space-xxxl: calc(var(--space-unit) * 8);  /* 64px */
+
+    --container-max-width: 1280px; /* Slightly wider for a more expansive feel */
+    --container-padding-x: var(--space-xl);
+    --header-height: 72px;
+    --section-padding-y: var(--space-xxxl);
+
+    /* Transitions & Animations */
+    --transition-duration-short: 150ms;
+    --transition-duration-base: 250ms;
+    --transition-duration-long: 400ms;
+    --transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth, slightly decelerating */
+
+    /* Hero Abstract Shapes (used in hero-section) */
+    --hero-bg-gradient-start: #f0f5ff; /* Very subtle blueish white */
+    --hero-bg-gradient-end: var(--color-background);
+}
+
+
+/* ==========================================================================
+   2. Global Resets & Base Styles
+   ========================================================================== */
+
+/* 2.1. Box Sizing & Reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2.2. HTML & Body
+   -------------------------------------------------------------------------- */
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-base);
+    transition: background-color var(--transition-duration-base) ease,
+                color var(--transition-duration-base) ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll from stray elements */
+}
+
+main {
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* 2.3. Accessibility
+   -------------------------------------------------------------------------- */
+:focus-visible { /* Modern focus outline */
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.2);
+}
+.visually-hidden {
+    position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important;
+    margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important; border: 0 !important;
+}
+
+
+/* ==========================================================================
+   3. Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--space-md);
+    font-weight: 700; /* Bolder default for headings */
+    letter-spacing: -0.01em; /* Subtle tightening for display fonts */
+}
+
+h1 { font-size: 3.052rem; /* ~48px */ font-weight: 800; letter-spacing: -0.02em; } /* Hero headings even bolder */
+h2 { font-size: 2.441rem; /* ~39px */ font-weight: 700; }
+h3 { font-size: 1.953rem; /* ~31px */ font-weight: 600; }
+h4 { font-size: 1.563rem; /* ~25px */ font-weight: 600; }
+h5 { font-size: 1.25rem;  /* ~20px */ font-weight: 500; }
+h6 { font-size: 1rem;     /* ~16px */ font-weight: 500; }
+
+p {
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-secondary);
+    max-width: 75ch; /* Optimal line length for readability */
+}
+p.lead {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    font-weight: 400;
+    margin-bottom: var(--space-xl);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-duration-short) ease;
+}
+a:hover, a:focus {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+    text-decoration-thickness: 1px; /* Finer underline */
+    text-underline-offset: 0.15em;
+}
+
+strong, b { font-weight: 600; }
+em, i { font-style: italic; }
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-xxl) 0;
+}
+
+/* Code blocks (if using manually styled code) */
+code, pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--color-background-offset);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+}
+code {
+    padding: 0.15em 0.3em;
+}
+pre {
+    padding: var(--space-md);
+    overflow-x: auto;
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--space-lg);
+    margin: var(--space-xl) 0;
+    font-style: italic;
+    color: var(--color-text-tertiary);
+}
+blockquote p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+ul, ol {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg); /* More indent */
+}
+li {
+    margin-bottom: var(--space-sm);
+}
+ul li::marker { /* More subtle list markers */
+    color: var(--color-text-tertiary);
+}
+
+
+/* ==========================================================================
+   4. Layout & Container
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
+}
+
+section {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+    position: relative; /* For potential absolutely positioned decorative elements */
+}
+
+/* Simple Grid (can be expanded if needed) */
+.grid {
+    display: grid;
+    gap: var(--space-xl); /* Default gap */
+}
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+
+/* ==========================================================================
+   5. UI Components
+   ========================================================================== */
+
+/* 5.1. Header / Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--header-height);
+    background-color: var(--color-background-translucent);
+    -webkit-backdrop-filter: blur(var(--glass-blur-intensity)) saturate(var(--glass-saturation));
+    backdrop-filter: blur(var(--glass-blur-intensity)) saturate(var(--glass-saturation));
+    border-bottom: 1px solid transparent; /* Initial state */
+    transition: background-color var(--transition-duration-base) ease,
+                border-color var(--transition-duration-base) ease,
+                box-shadow var(--transition-duration-base) ease;
+}
+.site-header.scrolled {
+    background-color: rgba(var(--rgb-background-glass), 0.85); /* Uses RGB var from themes.css */
+    border-bottom-color: var(--color-border);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.05); /* Subtle macOS like shadow */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.75rem; /* Slightly larger logo text */
+    font-weight: 700;
+    color: var(--color-text-primary);
+    transition: opacity var(--transition-duration-short) ease;
+}
+.logo a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+.logo img {
+    height: calc(var(--header-height) * 0.5); /* Relative to header height */
+    max-height: 40px;
+    margin-right: var(--space-sm);
+    transition: transform var(--transition-duration-base) var(--transition-timing-function);
+}
+.logo a:hover img {
+    transform: rotate(-3deg) scale(1.03);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.nav-menu li {
+    margin-left: var(--space-lg);
+    margin-bottom: 0;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: var(--space-xs) var(--space-sm); /* More padding */
+    border-radius: var(--radius-sm);
+    position: relative;
+    transition: color var(--transition-duration-short) ease, background-color var(--transition-duration-short) ease;
+}
+.nav-menu a:hover {
+    color: var(--color-text-primary);
+    background-color: rgba(var(--color-accent-rgb), 0.08); /* Subtle hover background */
+    text-decoration: none;
+}
+.nav-menu a.active {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+.nav-menu a.active:hover {
+    background-color: rgba(var(--color-accent-rgb), 0.12);
+}
+/* Remove ::after underline, rely on color/bg change for active/hover */
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    font-size: 1.6rem; /* Icon size */
+    padding: var(--space-sm);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--space-md);
+    transition: color var(--transition-duration-short) ease, background-color var(--transition-duration-short) ease;
+}
+.theme-toggle-btn:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-background-offset);
+}
+
+.mobile-menu-toggle {
+    display: none; /* Shown in media query */
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+}
+
+/* 5.2. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+    background-color: var(--color-background-offset);
+    color: var(--color-text-secondary);
+    padding: var(--space-xxl) 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer-links a {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+.footer-links a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+.footer-social-links {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-sm) 0 0 0;
+    display: flex;
+    gap: var(--space-md);
+}
+.footer-social-links a {
+    color: var(--color-text-tertiary);
+    font-size: 1.5rem; /* Icon size */
+    transition: color var(--transition-duration-short) ease, transform var(--transition-duration-short) ease;
+}
+.footer-social-links a:hover {
+    color: var(--color-accent);
+    transform: scale(1.1);
+}
+.site-footer p {
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-xs);
+}
+
+/* 5.3. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-flex; /* For icon alignment */
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: calc(var(--space-sm) + var(--space-xs)) var(--space-lg); /* 12px 24px approx */
+    font-size: 1rem;
+    font-weight: 500; /* Medium weight for buttons */
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent; /* Base border for consistent sizing */
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-duration-short) var(--transition-timing-function);
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap; /* Prevent wrapping */
+}
+.btn .material-icons-round { /* Icon inside button */
+    font-size: 1.25em;
+    margin-top: -0.05em; /* Fine-tune vertical alignment */
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text-on-accent);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-sm), 0 1px 0 rgba(255,255,255,0.1) inset; /* Subtle inner highlight */
+}
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: var(--color-accent-text-on-accent);
+}
+.btn-primary:active {
+    transform: translateY(0px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset, var(--shadow-sm);
+}
+
+.btn-secondary {
+    background-color: var(--color-background-offset);
+    color: var(--color-accent);
+    border-color: var(--color-border); /* Use subtle border */
+    font-weight: 500;
+}
+.btn-secondary:hover {
+    background-color: var(--color-background);
+    border-color: var(--color-border-hover);
+    color: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+}
+.btn-secondary:active {
+    transform: translateY(0px);
+    background-color: var(--color-border);
+}
+
+.btn-outline { /* More distinct outline */
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1.5px solid var(--color-border);
+}
+.btn-outline:hover {
+    background-color: var(--color-background-offset);
+    border-color: var(--color-text-secondary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.btn-lg {
+    padding: var(--space-md) var(--space-xl); /* ~16px 32px */
+    font-size: 1.125rem; /* ~18px */
+    border-radius: var(--radius-lg);
+}
+.btn-lg .material-icons-round {
+    font-size: 1.35em;
+}
+
+.btn-link { /* Looks like a link, acts like a button */
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-accent);
+    text-decoration: underline;
+    font-weight: 500;
+}
+.btn-link:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+/* 5.4. Cards
+   -------------------------------------------------------------------------- */
+.card {
+    background-color: var(--color-background); /* Brighter cards */
+    border-radius: var(--radius-xl); /* More pronounced rounding */
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border); /* Subtle border */
+    transition: transform var(--transition-duration-base) var(--transition-timing-function),
+                box-shadow var(--transition-duration-base) var(--transition-timing-function);
+    overflow: hidden; /* For image fitting and effects */
+}
+.card:hover {
+    transform: translateY(-var(--space-xs));
+    box-shadow: var(--shadow-lg);
+}
+.card-title { /* Already defined, but can be fine-tuned if needed */
+    font-size: 1.5rem; /* ~24px */
+    margin-bottom: var(--space-sm);
+}
+.card-text {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.card-link { /* Specific links within cards */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+.card-link:hover {
+    text-decoration: underline;
+}
+.card-link .material-icons-round {
+    font-size: 1.1em;
+    transition: transform var(--transition-duration-short) ease;
+}
+.card-link:hover .material-icons-round {
+    transform: translateX(2px);
+}
+.card-header-image {
+    width: calc(100% + (var(--space-xl) * 2)); /* Bleed effect */
+    margin: calc(-1 * var(--space-xl)) calc(-1 * var(--space-xl)) var(--space-md) calc(-1 * var(--space-xl));
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: var(--radius-xl); /* Match card radius */
+    border-top-right-radius: var(--radius-xl);
+    border-bottom: 1px solid var(--color-border); /* Separator */
+}
+
+/* 5.5. Forms
+   -------------------------------------------------------------------------- */
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+.form-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--space-md); /* More padding */
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background-color: var(--color-background-offset); /* Subtle background */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-duration-short) ease,
+                box-shadow var(--transition-duration-short) ease;
+}
+.form-control:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.2);
+    background-color: var(--color-background); /* Brighten on focus */
+}
+.form-control::placeholder {
+    color: var(--color-text-tertiary);
+    opacity: 1; /* Firefox fix */
+}
+textarea.form-control {
+    min-height: 140px;
+    resize: vertical;
+    line-height: var(--line-height-base);
+}
+
+/* 5.6. Cookie Banner
+   -------------------------------------------------------------------------- */
+.cookie-banner {
+    position: fixed;
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+    right: var(--space-lg);
+    max-width: 420px; /* Not full width, more like a toast */
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-xl); /* Prominent shadow */
+    z-index: 2000;
+    display: none; /* Shown by JS */
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    line-height: 1.6;
+}
+.cookie-banner p {
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+.cookie-banner a {
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: underline;
+}
+.cookie-banner .btn {
+    width: 100%;
+    margin-top: var(--space-sm);
+}
+
+
+/* ==========================================================================
+   6. Page Specific Styles
+   ========================================================================== */
+
+/* 6.1. Home Page
+   -------------------------------------------------------------------------- */
+.hero-section {
+    padding-top: calc(var(--header-height) + var(--space-xxxl));
+    padding-bottom: var(--space-xxxl);
+    text-align: center;
+    background-color: var(--hero-bg-gradient-start);
+    background-image: linear-gradient(180deg, var(--hero-bg-gradient-start) 0%, var(--hero-bg-gradient-end) 100%);
+    position: relative;
+    overflow: hidden; /* Contain background elements */
+    min-height: calc(100vh - var(--header-height)); /* Near full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-section .container {
+    position: relative;
+    z-index: 2; /* Above background shapes */
+}
+.hero-content h1 {
+    font-size: 3.8rem; /* Larger hero heading */
+    font-weight: 800; /* Extra bold */
+    margin-bottom: var(--space-lg);
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    letter-spacing: -0.025em;
+}
+.hero-content .tagline {
+    font-size: 1.35rem; /* Larger tagline */
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+.hero-actions {
+    margin-top: var(--space-xxl);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+/* Hero Background CSS Graphics */
+.hero-section .bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: subtleDrift 40s infinite alternate ease-in-out;
+    opacity: 0.08; /* More subtle base opacity */
+    filter: blur(120px); /* Increased blur */
+}
+.hero-section .bg-shape-1 {
+    width: 60vw; height: 60vw; max-width: 700px; max-height: 700px;
+    background-image: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.3) 0%, transparent 70%);
+    top: -20%; left: -25%;
+    animation-duration: 45s;
+}
+.hero-section .bg-shape-2 {
+    width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
+    background-image: radial-gradient(circle, rgba(var(--rgb-text-tertiary), 0.2) 0%, transparent 65%); /* Use RGB var from themes.css */
+    bottom: -25%; right: -20%;
+    animation-duration: 55s;
+    animation-direction: alternate-reverse;
+}
+.hero-section .bg-shape-3 {
+    width: 40vw; height: 40vw; max-width: 450px; max-height: 450px;
+    background-image: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.25) 0%, transparent 75%);
+    top: 10%; right: 5%;
+    animation-duration: 35s;
+    filter: blur(150px);
+}
+
+.intro-lionos-section { /* New section for more intro text if needed */
+    background-color: var(--color-background);
+}
+
+.features-section {
+    background-color: var(--color-background-offset); /* Alternate background */
+}
+.feature-item { /* Extends .card */
+    text-align: center;
+}
+.feature-icon {
+    font-size: 2.8rem; /* Slightly smaller, cleaner */
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    display: inline-flex;
+    padding: var(--space-sm);
+    background-color: rgba(var(--color-accent-rgb), 0.08);
+    border-radius: var(--radius-lg);
+}
+.feature-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+.feature-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.media-showcase-section .grid img { /* Image in the media showcase */
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+}
+.media-showcase-section .grid > div:last-child { /* Text content next to image */
+    padding-left: var(--space-xl); /* Only on larger screens (see media query) */
+}
+
+.cta-section {
+    background-color: var(--color-background);
+}
+.cta-section .material-icons-round { /* Large icon for CTA section */
+    font-size: 3.5rem;
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+/* 6.2. Downloads Page
+   -------------------------------------------------------------------------- */
+.download-item { /* Extends .card */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+.download-item .download-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+.download-item h3 { margin-bottom: 0; }
+.download-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+}
+.download-meta span { margin-right: 0; } /* Removed margin, using gap */
+.download-actions { margin-top: var(--space-md); }
+.changelog-toggle {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.changelog-content {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--color-background-offset);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+.changelog-content pre {
+    background-color: transparent;
+    border: none; padding: 0;
+    font-size: 1em; /* Inherit from .changelog-content */
+}
+
+/* 6.3. Docs & Blog Pages (Static Content Area)
+   -------------------------------------------------------------------------- */
+.page-content-area {
+    padding-top: calc(var(--header-height) + var(--space-xxl));
+    padding-bottom: var(--space-xxxl);
+}
+.page-content-area .container {
+    max-width: 800px; /* Optimal for reading */
+}
+.page-content-area h1:first-child {
+    margin-top: 0;
+    margin-bottom: var(--space-xl);
+}
+.page-content-area h2 { margin-top: var(--space-xxl); }
+.page-content-area h3 { margin-top: var(--space-xl); }
+.page-content-area img { /* For images within static docs/blog */
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    margin: var(--space-xl) 0;
+    box-shadow: var(--shadow-md);
+}
+
+/* Blog Index Page (if showing cards) */
+.blog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly larger min size */
+    gap: var(--space-xl);
+}
+.blog-post-card .card-meta { /* Extends .card */
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* 6.4. Community Page
+   -------------------------------------------------------------------------- */
+.community-link-card { /* Extends .card */
+    text-align: center;
+}
+.community-link-card .icon {
+    font-size: 2.8rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+}
+.community-link-card h3 {
+    font-size: 1.25rem; /* Slightly smaller for these cards */
+    margin-bottom: var(--space-xs);
+}
+
+/* 6.5. About Page
+   -------------------------------------------------------------------------- */
+.team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+.team-member-card { /* Extends .card */
+    text-align: center;
+}
+.team-member-card img {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+    border: 4px solid var(--color-background); /* Creates a nice inset border */
+    box-shadow: 0 0 0 1px var(--color-border), var(--shadow-sm); /* Outline + subtle shadow */
+}
+.team-member-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xs);
+}
+.team-member-card .role {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    display: block; /* Ensure it takes full width for centering */
+}
+
+/* 6.6. App Store Placeholder
+   -------------------------------------------------------------------------- */
+.appstore-placeholder {
+    text-align: center;
+    padding: var(--space-xxxl) var(--space-xl);
+    background-color: var(--color-background-offset);
+    border-radius: var(--radius-xl);
+    border: 2px dashed var(--color-border); /* Dashed border for placeholder */
+}
+.appstore-placeholder .icon {
+    font-size: 4.5rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-lg);
+}
+.appstore-placeholder h2 {
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+}
+.appstore-placeholder p {
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-left: auto; margin-right: auto;
+}
+.appstore-preview-image {
+    margin-top: var(--space-xxl);
+    max-width: min(100%, 700px); /* Responsive max width */
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* ==========================================================================
+   7. Responsive Design
+   ========================================================================== */
+@media (max-width: 1024px) { /* Tablet and smaller */
+    :root {
+        --base-font-size: 15px; /* Slightly smaller base on tablets */
+        --container-padding-x: var(--space-lg);
+        --section-padding-y: var(--space-xxl);
+    }
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 2.1rem; }
+    .hero-content h1 { font-size: 3.2rem; }
+    .hero-content .tagline { font-size: 1.25rem; }
+
+    .media-showcase-section .grid > div:last-child {
+        padding-left: 0; /* Remove specific padding for text block on tablets */
+        margin-top: var(--space-xl);
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    :root {
+        --header-height: 64px;
+        --container-padding-x: var(--space-md);
+        --section-padding-y: var(--space-xl);
+    }
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.8rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content .tagline { font-size: 1.1rem; }
+
+    .site-header { /* Mobile header adjustments */
+        -webkit-backdrop-filter: blur(calc(var(--glass-blur-intensity) * 0.8)) saturate(calc(var(--glass-saturation) * 0.9));
+        backdrop-filter: blur(calc(var(--glass-blur-intensity) * 0.8)) saturate(calc(var(--glass-saturation) * 0.9));
+    }
+    .nav-menu {
+        display: none; flex-direction: column;
+        position: absolute; top: var(--header-height);
+        left: 0; width: 100%;
+        background-color: var(--color-background);
+        box-shadow: var(--shadow-lg);
+        padding: var(--space-sm) 0;
+        border-top: 1px solid var(--color-border);
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+    }
+    .nav-menu.active { display: flex; }
+    .nav-menu ul { flex-direction: column; width: 100%; }
+    .nav-menu li { margin-left: 0; width: 100%; }
+    .nav-menu a {
+        display: block; padding: var(--space-md) var(--space-lg);
+        text-align: left; border-bottom: 1px solid var(--color-border);
+        font-size: 1rem;
+    }
+    .nav-menu li:last-child a { border-bottom: none; }
+    .nav-menu a.active, .nav-menu a:hover {
+        background-color: rgba(var(--color-accent-rgb), 0.05);
+        color: var(--color-accent);
+    }
+
+    .theme-toggle-btn { margin-left: 0; }
+    .mobile-menu-toggle { display: flex; } /* Use flex for alignment */
+    .header-content { padding: 0 var(--container-padding-x); }
+
+    .grid-cols-2, .grid-cols-3, .grid-cols-4 { grid-template-columns: 1fr; }
+    .features-section .grid { grid-template-columns: 1fr; } /* Stack features */
+    .team-grid { grid-template-columns: 1fr; }
+
+    .footer-links { flex-direction: column; gap: var(--space-md); }
+    .cookie-banner {
+        left: var(--space-md); right: var(--space-md); bottom: var(--space-md);
+        max-width: none; /* Full width on mobile */
+    }
+
+    .hero-section .bg-shape-1 { width: 80vw; height: 80vw; top: -25%; left: -30%; filter: blur(80px); }
+    .hero-section .bg-shape-2 { width: 70vw; height: 70vw; bottom: -30%; right: -25%; filter: blur(80px); }
+    .hero-section .bg-shape-3 { display: none; }
+}
+
+/* ==========================================================================
+   8. Utility & Helper Classes
+   ========================================================================== */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-accent { color: var(--color-accent) !important; }
+.bg-accent { background-color: var(--color-accent) !important; color: var(--color-accent-text-on-accent) !important; }
+
+/* Spacing utilities (use sparingly, prefer semantic component styles) */
+.mt-1 { margin-top: var(--space-sm) !important; } .mt-2 { margin-top: var(--space-md) !important; } .mt-3 { margin-top: var(--space-lg) !important; } .mt-4 { margin-top: var(--space-xl) !important; } .mt-5 { margin-top: var(--space-xxl) !important; }
+.mb-1 { margin-bottom: var(--space-sm) !important; } .mb-2 { margin-bottom: var(--space-md) !important; } .mb-3 { margin-bottom: var(--space-lg) !important; } .mb-4 { margin-bottom: var(--space-xl) !important; } .mb-5 { margin-bottom: var(--space-xxl) !important; }
+.pt-1 { padding-top: var(--space-sm) !important; } .pt-2 { padding-top: var(--space-md) !important; } .pt-3 { padding-top: var(--space-lg) !important; } .pt-4 { padding-top: var(--space-xl) !important; } .pt-5 { padding-top: var(--space-xxl) !important; }
+.pb-1 { padding-bottom: var(--space-sm) !important; } .pb-2 { padding-bottom: var(--space-md) !important; } .pb-3 { padding-bottom: var(--space-lg) !important; } .pb-4 { padding-bottom: var(--space-xl) !important; } .pb-5 { padding-bottom: var(--space-xxl) !important; }
+
+.d-flex { display: flex !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.flex-column { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.gap-1 { gap: var(--space-sm) !important; } .gap-2 { gap: var(--space-md) !important; } .gap-3 { gap: var(--space-lg) !important; } .gap-4 { gap: var(--space-xl) !important; }
+
+
+/* ==========================================================================
+   9. Icons (Google Material Icons)
+   ========================================================================== */
+.material-icons-round {
+  font-family: 'Material Icons Round';
+  font-weight: normal; font-style: normal; font-size: 24px; /* Default size */
+  display: inline-block; line-height: 1; text-transform: none;
+  letter-spacing: normal; word-wrap: normal; white-space: nowrap; direction: ltr;
+  vertical-align: middle; /* Better default alignment */
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale; font-feature-settings: 'liga';
+}
+
+/* ==========================================================================
+   10. Animations (Keyframes used by animations.css or inline styles)
+   ========================================================================== */
+@keyframes subtleDrift {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+    25%  { transform: translate(5px, -10px) rotate(2deg) scale(1.02); }
+    50%  { transform: translate(-5px, 10px) rotate(-2deg) scale(1); }
+    75%  { transform: translate(10px, 5px) rotate(1deg) scale(1.03); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+
+/* End of style.css */

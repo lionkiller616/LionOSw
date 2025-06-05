@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Feature: Performance Icon</title>
+  <rect width="64" height="64" rx="12" fill="var(--color-primary-rgb-opacity, rgba(74, 144, 226, 0.1))"/>
+  <path d="M22.6667 41.3333L32 32L22.6667 22.6667M32 41.3333L41.3333 32L32 22.6667" stroke="var(--color-primary, #4A90E2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <style>
+    :root { --color-primary-rgb-opacity: rgba(74, 144, 226, 0.1); --color-primary: #4A90E2; }
+    html.dark { --color-primary-rgb-opacity: rgba(90, 175, 255, 0.15); --color-primary: #5AAFFF; }
+    rect { fill: var(--color-primary-rgb-opacity); }
+    path { stroke: var(--color-primary); }
+  </style>
+</svg>

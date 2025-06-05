@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LionOS Blog - News, Updates, and Insights</title>
+    <meta name="description" content="Stay up-to-date with the latest news, releases, development insights, and community stories from the LionOS project.">
+
+    <!-- Favicon, Icons, Stylesheets (same as other pages) -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-content-area">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll fade-in-up">
+                    <h1>LionOS Blog</h1>
+                    <p class="lead">News, updates, development insights, and community stories from the LionOS team.</p>
+                </div>
+
+                <div class="blog-grid animate-on-scroll fade-in-up" style="--animation-delay: 0.2s;" id="blog-grid-main">
+                    <!-- Blog Post Card - Example 1 (Manually add new posts here) -->
+                    <article class="card blog-post-card glass-shine-hover">
+                        <!-- Optional: Placeholder for a blog post header image -->
+                        <!-- <img src="../public/images/blog/post1-header.jpg" alt="Descriptive alt text" class="card-header-image"> -->
+                        <div class="card-body">
+                            <p class="card-meta">
+                                <span class="material-icons-round" style="font-size: 1em; vertical-align: text-bottom;">calendar_month</span> Oct 26, 2023 
+                                <span style="margin: 0 0.5em;">•</span>
+                                <span class="material-icons-round" style="font-size: 1em; vertical-align: text-bottom;">person</span> LionOS Team
+                            </p>
+                            <h3 class="card-title"><a href="blog/welcome-to-lionos.html">Welcome to the New LionOS! Announcing Version 2024.1 "Serenity"</a></h3>
+                            <p class="card-text">
+                                We are thrilled to announce the official release of LionOS 2024.1 "Serenity"! This version marks a significant milestone...
+                            </p>
+                            <a href="blog/welcome-to-lionos.html" class="btn btn-outline btn-sm mt-2 card-link">
+                                Read More <span class="material-icons-round" style="font-size: 1.1em;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post Card - Example 2 -->
+                    <article class="card blog-post-card glass-shine-hover">
+                        <div class="card-body">
+                            <p class="card-meta">
+                                <span class="material-icons-round" style="font-size: 1em; vertical-align: text-bottom;">calendar_month</span> Sep 15, 2023
+                                <span style="margin: 0 0.5em;">•</span>
+                                <span class="material-icons-round" style="font-size: 1em; vertical-align: text-bottom;">developer_mode</span> Dev Diary
+                            </p>
+                            <h3 class="card-title"><a href="blog/dev-diary-lico-compositor.html">Developer Diary: Crafting the LICO Compositor</a></h3>
+                            <p class="card-text">
+                                Building a smooth, responsive compositor is one of the biggest challenges. Here's a peek into the development of LICO...
+                            </p>
+                            <a href="blog/dev-diary-lico-compositor.html" class="btn btn-outline btn-sm mt-2 card-link">
+                                Read More <span class="material-icons-round" style="font-size: 1.1em;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Add more <article class="card blog-post-card"> here for each new blog post -->
+                    <!-- Example: No Posts Yet -->
+                    <!--
+                    <div class="text-center" style="grid-column: 1 / -1;">
+                        <p class="lead">No blog posts yet. Check back soon for updates!</p>
+                        <span class="material-icons-round" style="font-size: 3rem; color: var(--color-text-tertiary); margin-top: 1rem;">upcoming</span>
+                    </div>
+                    -->
+
+                </div>
+
+                <!-- Optional: Pagination (if you have many posts, manual for now) -->
+                <!--
+                <nav aria-label="Blog post navigation" class="mt-5 pt-4 text-center animate-on-scroll fade-in-up">
+                    <a href="#" class="btn btn-outline">« Older Posts</a>
+                    <a href="#" class="btn btn-outline ml-2">Newer Posts »</a>
+                </nav>
+                -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer (Same as other pages) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner (Same as other pages) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

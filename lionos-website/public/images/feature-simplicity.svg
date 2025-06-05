@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Feature: Simplicity Icon</title>
+  <rect width="64" height="64" rx="12" fill="var(--color-primary-rgb-opacity, rgba(74, 144, 226, 0.1))"/>
+  <circle cx="32" cy="32" r="10" stroke="var(--color-primary, #4A90E2)" stroke-width="3"/>
+  <path d="M32 20V24M32 40V44M44 32H40M24 32H20" stroke="var(--color-primary, #4A90E2)" stroke-width="3" stroke-linecap="round"/>
+   <style>
+    :root { --color-primary-rgb-opacity: rgba(74, 144, 226, 0.1); --color-primary: #4A90E2; }
+    html.dark { --color-primary-rgb-opacity: rgba(90, 175, 255, 0.15); --color-primary: #5AAFFF; }
+    rect { fill: var(--color-primary-rgb-opacity); }
+    circle, path { stroke: var(--color-primary); }
+  </style>
+</svg>

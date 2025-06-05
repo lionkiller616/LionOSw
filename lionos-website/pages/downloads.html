@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download LionOS - Latest Releases</title>
+    <meta name="description" content="Get the latest official ISO images for LionOS. Find direct downloads, mirror links, and version changelogs.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html" class="active">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-content-area">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll fade-in-up">
+                    <h1>Download LionOS</h1>
+                    <p class="lead">Get the latest stable and testing releases of LionOS. Choose the version that's right for you.</p>
+                </div>
+
+                <!-- Stable Release Section -->
+                <div class="download-section mb-5 animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+                    <h2><span class="material-icons-round text-accent" style="vertical-align: bottom; font-size: 1.3em; margin-right: 0.2em;">verified</span>Stable Release</h2>
+                    <p>Recommended for most users. Offers the best balance of new features and reliability.</p>
+
+                    <article class="download-item card glass-shine-hover">
+                        <div class="download-header">
+                            <div>
+                                <h3>LionOS 2024.1 "Serenity"</h3>
+                                <div class="download-meta">
+                                    <span>Version: 2024.1</span>
+                                    <span>Released: Oct 26, 2023</span>
+                                    <span>Size: 2.5 GB</span>
+                                    <span>Architecture: x86_64</span>
+                                </div>
+                            </div>
+                            <div class="download-actions">
+                                <a href="#" class="btn btn-primary btn-icon">
+                                    <span class="material-icons-round">download</span> Direct Download
+                                </a>
+                                <!-- <a href="#" class="btn btn-outline btn-icon ml-2">
+                                    <span class="material-icons-round">public</span> Mirrors
+                                </a> -->
+                            </div>
+                        </div>
+                        <hr style="margin: var(--space-md) 0;">
+                        <div class="download-info">
+                            <p class="mb-2"><strong>Checksum (SHA256):</strong> <code>a1b2c3d4e5f6...yoursha256checksumhere...7x8y9z0</code></p>
+                            <button class="changelog-toggle btn btn-link btn-sm" data-target="changelog-2024-1" aria-expanded="false">
+                                <span class="material-icons-round" style="font-size: 1.2em;">receipt_long</span> Show Changelog
+                            </button>
+                            <div id="changelog-2024-1" class="changelog-content" style="display: none;">
+                                <p><strong>Key Changes in LionOS 2024.1 "Serenity":</strong></p>
+                                <ul>
+                                    <li>New redesigned Desktop Environment "Elysium".</li>
+                                    <li>Kernel updated to version 6.X for improved hardware support.</li>
+                                    <li>Enhanced power management features.</li>
+                                    <li>Updated graphics stack with better performance.</li>
+                                    <li>Security patches and bug fixes.</li>
+                                    <li>Introduction of the new "Glass UI" elements across the system.</li>
+                                    <li>Improved Wayland support (experimental).</li>
+                                </ul>
+                                <p><a href="blog-post-template.html?post=lionos-2024-1-released">Read the full announcement »</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Testing/Development Release Section (Optional) -->
+                <div class="download-section mb-5 animate-on-scroll fade-in-up" style="--animation-delay: 0.2s;">
+                    <h2><span class="material-icons-round text-accent" style="vertical-align: bottom; font-size: 1.3em; margin-right: 0.2em;">science</span>Testing Release (Nightly/Beta)</h2>
+                    <p>For developers and enthusiasts who want to try the latest features and help us test. May contain bugs.</p>
+
+                    <article class="download-item card glass-shine-hover">
+                        <div class="download-header">
+                           <div>
+                                <h3>LionOS "Nova" (Nightly Build)</h3>
+                                <div class="download-meta">
+                                    <span>Build ID: 20231105-nightly</span>
+                                    <span>Released: Nov 05, 2023</span>
+                                    <span>Size: 2.7 GB</span>
+                                    <span>Architecture: x86_64</span>
+                                </div>
+                            </div>
+                            <div class="download-actions">
+                                <a href="#" class="btn btn-secondary btn-icon">
+                                    <span class="material-icons-round">download</span> Download Nightly
+                                </a>
+                            </div>
+                        </div>
+                         <hr style="margin: var(--space-md) 0;">
+                        <div class="download-info">
+                            <p class="mb-2"><strong>Checksum (SHA256):</strong> <code>f6e5d4c3b2a1...yournightlychecksum...z0y9x8w7</code></p>
+                            <button class="changelog-toggle btn btn-link btn-sm" data-target="changelog-nova-nightly" aria-expanded="false">
+                               <span class="material-icons-round" style="font-size: 1.2em;">receipt_long</span> Show Recent Commits
+                            </button>
+                            <div id="changelog-nova-nightly" class="changelog-content" style="display: none;">
+                                <p>This is a development build. Changelogs are typically available via our Git repository commit history.</p>
+                                <ul>
+                                    <li>Latest kernel patches.</li>
+                                    <li>Experimental window tiling manager.</li>
+                                    <li>Ongoing UI refinements for App Center.</li>
+                                </ul>
+                                <p><a href="#" target="_blank" rel="noopener">View Commit History »</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Older Releases Section (Optional) -->
+                <div class="download-section animate-on-scroll fade-in-up" style="--animation-delay: 0.3s;">
+                    <h2><span class="material-icons-round text-accent" style="vertical-align: bottom; font-size: 1.3em; margin-right: 0.2em;">history</span>Older Releases</h2>
+                    <p>Looking for a previous version? <a href="#" class="animated-underline">Visit our release archive (link to be added)</a>.</p>
+                </div>
+
+                <hr class="my-5">
+
+                <div class="text-center animate-on-scroll fade-in-up" style="--animation-delay: 0.4s;">
+                    <h3>Installation Guide & Support</h3>
+                    <p>Need help installing LionOS or have questions? Check out our comprehensive documentation and community channels.</p>
+                    <div class="hero-actions mt-3">
+                        <a href="docs.html#installation-guide" class="btn btn-outline">
+                            <span class="material-icons-round">integration_instructions</span> Installation Guide
+                        </a>
+                        <a href="community.html" class="btn btn-outline">
+                            <span class="material-icons-round">support_agent</span> Get Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

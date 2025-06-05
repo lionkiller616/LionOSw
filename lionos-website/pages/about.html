@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About LionOS - Our Vision, Mission, and Story</title>
+    <meta name="description" content="Learn about the philosophy behind LionOS, our mission to redefine personal computing, and the passionate community driving its development.">
+
+    <!-- Favicon, Icons, Stylesheets (same as other pages) -->
+    <link rel="icon" href="../public/images/favicon.ico" sizes="any">
+    <link rel="icon" href="../public/images/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../public/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/themes.css">
+    <link rel="stylesheet" href="../public/css/animations.css">
+    <style>
+        .about-hero {
+            padding-top: calc(var(--header-height) + var(--space-xxl));
+            padding-bottom: var(--space-xxl);
+            text-align: center;
+            background: linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.03) 0%, transparent 60%);
+        }
+        .about-hero h1 {
+            font-size: 3rem; font-weight: 800;
+        }
+        .about-section {
+            padding: var(--section-padding-y) 0;
+        }
+        .about-section .container {
+            max-width: 900px; /* Good for readability */
+        }
+        .about-section h2 {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            font-size: 2.2rem;
+        }
+        .about-section h2 .material-icons-round {
+            font-size: 1.2em; /* Relative to h2 size */
+            vertical-align: middle;
+            margin-right: var(--space-sm);
+            color: var(--color-accent);
+        }
+        .about-section p, .about-section ul {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+        .about-section strong {
+            color: var(--color-text-primary);
+        }
+        .team-section {
+            background-color: var(--color-background-offset);
+        }
+         /* team-grid and team-member-card styles are already in style.css */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        .value-card { /* Extends .card but with more focus */
+            text-align: center;
+            padding: var(--space-xl);
+        }
+        .value-card .material-icons-round {
+            font-size: 2.8rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
+        }
+        .value-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header glass-shine-hover">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo">
+                    LionOS
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu-main">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <nav class="nav-menu" id="nav-menu-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero animate-on-scroll fade-in">
+            <div class="container">
+                <h1>About LionOS</h1>
+                <p class="lead" style="max-width: 700px; margin: var(--space-md) auto 0 auto;">
+                    Discover the story, principles, and passion that drive the LionOS project forward.
+                </p>
+            </div>
+        </section>
+
+        <section id="vision" class="about-section animate-on-scroll fade-in-up" style="--animation-delay: 0.1s;">
+            <div class="container">
+                <h2><span class="material-icons-round">visibility</span>Our Vision</h2>
+                <p>At LionOS, we envision a future where personal computing is effortlessly elegant, universally accessible, and profoundly empowering. We see an operating system that acts as a seamless extension of the user's intent, fostering creativity, productivity, and digital well-being without imposing complexity. Our vision is to craft an OS that is not only a tool but a delightful experience – beautiful to behold, intuitive to navigate, and powerful enough to bring any idea to life, all while respecting user privacy and championing the open-source spirit.</p>
+            </div>
+        </section>
+
+        <section id="mission" class="about-section" style="background-color: var(--color-background-offset);"  data-animate-delay="0.2s">
+            <div class="container animate-on-scroll fade-in-up">
+                <h2><span class="material-icons-round">rocket_launch</span>Our Mission</h2>
+                <p>Our mission is to design, develop, and deliver LionOS as a leading-edge, community-driven Linux distribution that achieves an unparalleled balance of:</p>
+                <ul>
+                    <li><strong>Performance & Efficiency:</strong> To build a lightweight, fast, and resource-efficient OS that excels on diverse hardware.</li>
+                    <li><strong>Design & User Experience:</strong> To create a visually stunning, meticulously crafted, and intuitively simple user interface inspired by the best design principles.</li>
+                    <li><strong>Security & Privacy:</strong> To integrate robust security measures and privacy-respecting features as fundamental components of the system.</li>
+                    <li><strong>Innovation & Openness:</strong> To foster innovation through open collaboration, embracing modern technologies while remaining true to open-source values.</li>
+                    <li><strong>Community Empowerment:</strong> To build a vibrant, inclusive, and supportive global community where users and developers collectively shape the future of LionOS.</li>
+                </ul>
+                <p>We strive to make advanced computing accessible and enjoyable for everyone, from casual users to seasoned developers.</p>
+            </div>
+        </section>
+
+        <section id="values" class="about-section animate-on-scroll fade-in-up" style="--animation-delay: 0.3s;">
+            <div class="container">
+                <h2><span class="material-icons-round">checklist_rtl</span>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card card glass-shine-hover">
+                        <span class="material-icons-round">brush</span>
+                        <h4>Elegance</h4>
+                        <p>We believe in the power of thoughtful, minimalist design that is both beautiful and functional.</p>
+                    </div>
+                    <div class="value-card card glass-shine-hover">
+                        <span class="material-icons-round">speed</span>
+                        <h4>Performance</h4>
+                        <p>Speed and efficiency are paramount. LionOS is optimized to be fast and responsive.</p>
+                    </div>
+                    <div class="value-card card glass-shine-hover">
+                        <span class="material-icons-round">accessibility_new</span>
+                        <h4>Simplicity</h4>
+                        <p>Technology should be intuitive. We focus on ease of use without sacrificing power.</p>
+                    </div>
+                    <div class="value-card card glass-shine-hover">
+                        <span class="material-icons-round">lock_person</span>
+                        <h4>Privacy</h4>
+                        <p>Your data is yours. We are committed to protecting user privacy at every level.</p>
+                    </div>
+                    <div class="value-card card glass-shine-hover">
+                        <span class="material-icons-round">hub</span>
+                        <h4>Openness</h4>
+                        <p>Built on open-source principles, fostering transparency, collaboration, and freedom.</p>
+                    </div>
+                    <div class="value-card card glass-shine-hover">
+                        <span class="material-icons-round">groups_3</span>
+                        <h4>Community</h4>
+                        <p>LionOS is shaped by its users and contributors. We thrive on collective passion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional: Team Section -->
+        <!-- If you have a team/key contributors to showcase, uncomment and populate this section -->
+        <!--
+        <section id="team" class="about-section team-section animate-on-scroll fade-in-up" style="--animation-delay: 0.4s;">
+            <div class="container">
+                <h2><span class="material-icons-round">people</span>Meet the Core Team</h2>
+                <p class="text-center mb-5">LionOS is brought to life by a dedicated group of developers, designers, and enthusiasts. Here are some of the key people behind the project.</p>
+                <div class="team-grid">
+                    <article class="team-member-card">
+                        <img src="../public/images/team/member1-avatar.jpg" alt="Team Member Name">
+                        <h4>Team Member Name</h4>
+                        <p class="role">Lead Developer / Project Founder</p>
+                        <p class="card-text" style="font-size: 0.85rem;">A brief bio or a quote from the team member about their passion for LionOS.</p>
+                        <div class="footer-social-links mt-2" style="justify-content: center;">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><span class="material-icons-round">code</span></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Personal Website/Link"><span class="material-icons-round">link</span></a>
+                        </div>
+                    </article>
+                    <article class="team-member-card">
+                        <img src="../public/images/team/member2-avatar.jpg" alt="Another Team Member">
+                        <h4>Another Team Member</h4>
+                        <p class="role">Lead UI/UX Designer</p>
+                        <p class="card-text" style="font-size: 0.85rem;">Passionate about creating beautiful and intuitive user experiences for open-source software.</p>
+                         <div class="footer-social-links mt-2" style="justify-content: center;">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Dribbble/Portfolio"><span class="material-icons-round">palette</span></a>
+                        </div>
+                    </article>
+                    <!-- Add more team members as needed -->
+        <!--
+                </div>
+                <p class="text-center mt-4">...and many other incredible <a href="contribute.html" class="animated-underline">contributors</a> from around the world!</p>
+            </div>
+        </section>
+        -->
+
+        <section class="about-section text-center animate-on-scroll fade-in-up" style="--animation-delay: 0.5s;">
+            <div class="container">
+                <h2>Join Our Journey</h2>
+                <p>LionOS is more than just code; it's a vision for a better computing future. We invite you to download LionOS, explore its features, and become part of our growing community. Together, we can build something truly special.</p>
+                <div class="hero-actions mt-4">
+                    <a href="downloads.html" class="btn btn-primary">
+                        <span class="material-icons-round">download</span> Get LionOS
+                    </a>
+                    <a href="community.html" class="btn btn-secondary">
+                        <span class="material-icons-round">forum</span> Join the Community
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Site Footer (Same as other pages) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+                <a href="index.html" aria-label="LionOS Homepage">
+                    <img src="../public/images/logo.svg" alt="LionOS Logo" style="height: 30px;">
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="about.html">About LionOS</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="docs.html">Support & Docs</a></li>
+                <li><a href="downloads.html">Get LionOS</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+            <ul class="footer-social-links">
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on GitHub"><span class="material-icons-round" title="GitHub">code</span></a></li>
+                <li><a href="https://t.me/Lionoschat" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Telegram"><span class="material-icons-round" title="Telegram">telegram</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS Community Forum"><span class="material-icons-round" title="Community Forum">forum</span></a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LionOS on Mastodon"><span class="material-icons-round" title="Mastodon">public</span></a></li>
+            </ul>
+            <p>© <span id="current-year"></span> The LionOS Project & Contributors.</p>
+            <p>LionOS is a community-driven open-source initiative. <a href="#" target="_blank" rel="noopener noreferrer" class="animated-underline">View Website Source on GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner (Same as other pages) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html">Privacy & Cookie Policy</a>.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept & Close</button>
+    </div>
+
+    <script src="../public/js/main.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
